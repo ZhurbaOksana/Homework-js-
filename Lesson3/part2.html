@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Part 2 (with 4 numbers)</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var a = prompt("A", "0");
+	var b = prompt("B", "0");
+	var c = prompt("C", "0");
+	var d = prompt("D", "0");
+
+	var a = +a;
+	var b = +b;
+	var c = +c;
+	var d = +d;
+
+	var max_ab = (a > b) ? a : b;
+	var min_ab = (a > b) ? b : a;
+
+	var max_cd = (c > d) ? c : d;
+	var min_cd = (c > d) ? d : c;
+
+	var number1 =(max_ab > max_cd) ? max_ab : max_cd;
+
+	var number2_or_3 =(max_ab > max_cd) ? max_cd : max_ab;
+	var number3_or_2 =(min_ab > min_cd) ? min_ab : min_cd;
+
+	var number2 =(number2_or_3 > number3_or_2) ? number2_or_3 : number3_or_2;
+	var number3 =(number2_or_3 > number3_or_2) ? number3_or_2 : number2_or_3;
+	
+	var number4 =(min_ab > min_cd) ? min_cd : min_ab;
+
+alert( number1 + " " + number2 + "  " + number3 + "  " + number4);
+	number1*= 20;
+	number2*= 10;
+	number3*= 5;
+
+	alert( number1 + " " + number2 + "  " + number3 + "  " + number4);
+ </script>
+</body>
+</html>
