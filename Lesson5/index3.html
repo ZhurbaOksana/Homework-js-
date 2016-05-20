@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 5.3</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function rand (min, max) { 
+			return Math.floor(Math.random() * (max - min)) + min; 
+		} 
+		var N = 5,
+			M = 5;
+			min = 0,
+			max = 20,
+			my_arr = [],
+			indexAarray1 = [],
+			indexAarray2 = [],
+			indexAarray3 = [],
+			indexAarray4 = [],
+			indexAarray = [];
+
+			for(var i=0; i < N; i++){
+			my_arr[i] = new Array();
+			
+				for(var j=0; j < M; j++){
+					my_arr[i][j] = rand (min,max);
+				}
+			}
+			console.table(my_arr);
+
+			/*по часовой стрелке*/
+		 	for(var i=0; i < my_arr.length; i++){
+		 		for(var j=0; j < my_arr[i].length; j++){
+		 			// выводим my_arr[0]
+		 			if (i == 0){
+		 				indexAarray1.push(my_arr[i][j]);   
+		 			}
+		 			//выводим последние элементы подмасивов (не учитвывая последний подмассив)
+		 			else if ( i != 0 && (j == (my_arr.length - 1) && i !=(my_arr[i].length - 1)) ){
+		 				indexAarray2.push(my_arr[i][j]);
+		 			}
+					//выводим my_arr[N]
+		 			else if ( i == my_arr[i].length - 1){
+		 				indexAarray3.push(my_arr[i][j]);
+		 			}
+		 			//выводим первые элементы подмасивов (не учитвывая последний и первый подмассив)
+		 			else if (j == 0 && i != my_arr[i].length - 1 && j != my_arr.length - 1) {
+		 				indexAarray4.push(my_arr[i][j]);
+		 			}
+		 		}
+		 	}
+		 	indexAarray3 = indexAarray3.reverse();
+		 	indexAarray4 = indexAarray4.reverse();
+		 	indexAarray = indexAarray1.concat(indexAarray2, indexAarray3, indexAarray4);
+
+			console.log("периметр массива по часовой стрелке " + indexAarray);
+
+
+			/*против часовой стрелке*/
+
+			indexAarray1 = [];
+			indexAarray2 = [];
+			indexAarray3 = [];
+			indexAarray4 = [];
+			indexAarray = [];  
+		for(var i=0; i < my_arr.length; i++){
+		 		for(var j=0; j < my_arr[i].length; j++){
+		 			//выводим первые элементы подмасивов
+		 			 if (j == 0){
+		 				indexAarray1.push(my_arr[i][j]);
+		 			}
+					//выводим последний подмассив без первого и последнего элемента
+		 			else if ( i == my_arr[i].length - 1 && j != 0 && j != (my_arr.length - 1)){
+		 		 		indexAarray2.push(my_arr[i][j]);
+		 		 	}
+		 		 	//выводим последние элементы подмассивов
+		 		 	else if ( j == (my_arr.length - 1)){
+		 				indexAarray3.push(my_arr[i][j]);
+		 		 	}
+		 		 	//выводим первый подмассив без первого и последнего элемента
+		 		 	else if ( i == 0 && j != 0 && j != (my_arr.length - 1)){
+		 		 		indexAarray4.push(my_arr[i][j]);
+		 		 	}
+		 		}
+		 	}
+		 	indexAarray3 = indexAarray3.reverse();
+		 	indexAarray4 = indexAarray4.reverse();
+		 	indexAarray = indexAarray1.concat(indexAarray2, indexAarray3, indexAarray4);
+		 	console.log("периметр массива пpотив часовой стрелке " + indexAarray);
+
+
+			/*вывод диагональных элементов*/
+			indexAarray = []; 
+			for(var i=0; i < my_arr.length; i++){
+			 	indexAarray.push(my_arr[i][i]);	
+		 	}
+		 	console.log("Массив диагональных элементов " + indexAarray);
+	</script>
+</body>
+</html>

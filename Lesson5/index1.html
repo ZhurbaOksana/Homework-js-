@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 5.1</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function rand (min, max) { 
+			return Math.floor(Math.random() * (max - min)) + min; 
+		} 
+		var N = 2,
+			M = 3;
+			min = 0,
+			max = 20,
+			my_arr = new Array();
+
+		for(var i=0; i < N; i++){
+			my_arr[i] = new Array();
+			
+				for(var j=0; j < M; j++){
+					my_arr[i][j] = rand (min,max);
+				}
+		}
+
+		console.table(my_arr);
+	</script>
+</body>
+</html>

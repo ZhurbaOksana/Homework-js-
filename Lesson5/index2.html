@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 5.2</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function rand (min, max) { 
+			return Math.floor(Math.random() * (max - min)) + min; 
+		} 
+		var N = 2,
+			M = 3;
+			min = 0,
+			max = 20,
+			my_arr = [];
+			mirrowMyAarray = [];
+
+			for(var i=0; i < N; i++){
+			my_arr[i] = new Array();
+			
+				for(var j=0; j < M; j++){
+					my_arr[i][j] = rand (min,max);
+				}
+			}
+			console.table(my_arr);
+
+
+		 	for(var i=0; i < my_arr.length; i++){
+		 		mirrowMyAarray[i] = [];
+		 		for(var j=0; j < my_arr[i].length; j++){
+		 			mirrowMyAarray[i][j] = my_arr[my_arr.length - i - 1][my_arr[i].length - j - 1];
+		 		}
+		 	}
+		console.table(mirrowMyAarray);
+	</script>
+</body>
+</html>
