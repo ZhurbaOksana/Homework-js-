@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 6</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function rand (min, max) { 
+			return Math.floor(Math.random() * (max - min)) + min; 
+		} 
+		var N = 4,
+			M = 4;
+			min = 0,
+			max = 20,
+			arr2 = new Array(),
+			topSide = [],
+			bottom =[],
+			left = [],
+			right = [],
+			perimetr = [];
+			//наполняем массив случайными числами
+
+		for(var i=0; i < N; i++){
+			arr2[i] = new Array();
+			for(var j=0; j < M; j++){
+				arr2[i][j] = rand (min,max);
+			}
+		}
+ 		console.table(arr2);
+
+		var p, k,//колличество витков
+			temp_bottom =[[],[]],
+			temp_left =[[],[]],
+			temp_right =[[],[]],
+			temp_topSide =[[],[]];
+		 // зависимость колличества витков  от размерности массива	
+		if(arr2.length % 2){
+			p = arr2.length / 2 + 1;
+			k = arr2.length / 2 - 1;
+		}
+		else{
+			p = arr2.length / 2;
+			k = arr2.length / 2;
+		}
+		//bottom
+		for(var c = 0; c < k; c++){
+			for (var i = 0 + c; i < arr2.length - c; i++){
+				bottom.push(arr2[arr2.length-c-1][arr2.length - i - 1]);
+			}
+			temp_bottom[c] = bottom;
+			bottom =[];
+		}
+
+		// top
+		for(var c = 0; c < p; c++){
+			for (var i = 0 + c; i < arr2.length - c; i++){
+			   topSide.push(arr2[0+c][i]);
+			}
+			temp_topSide[c] = topSide;
+			topSide =[];
+			//left and right
+			for (var i =1 + c; i <arr2.length - 1 -c; i++) {
+				left.unshift(arr2[i][0+c]);
+				right.push(arr2[i][arr2[i].length-1 -c]);
+			}
+
+			temp_left[c] = left;
+			left =[];
+			temp_right[c] =  right;
+			right =[];
+		}
+		// заполнение конечного массива промежуточными 
+		for(var c = 0; c < p; c++){
+			perimetr = perimetr.concat(temp_topSide[c],temp_right[c],temp_bottom[c],temp_left[c]);
+		}
+		var perimetr1 = [];
+
+		//проверка на кол-чество  элементов, без этого цикла в конечный массив  записывается некое (зависящее от размерности массива)  кол-во  "underfined"
+		for (var i=0; i < arr2.length*arr2.length; i++) {
+			perimetr1[i] = perimetr[i];
+		}
+
+		console.log(perimetr1);
+	</script>
+</body>
+</html>
