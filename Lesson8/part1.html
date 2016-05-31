@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Урок 5</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		function showTime(){
+			var watch = new Date();
+			var hours = watch.getHours();
+			var minutes = watch.getMinutes();
+			var seconds = watch.getSeconds();
+
+			console.clear();
+			console.log(hours  + " : " + minutes + " : " + seconds);
+
+			setTimeout(showTime, 1000);
+		}
+	 	showTime();
+
+	</script>
+</body>
+</html>
