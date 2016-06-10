@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Урок 5</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var N = 10;
+	var arr = [];
+	 
+	for(var i = 0; i < N; i++){
+	 	arr[i] = [];
+	 	for(var j = 0; j < N; j++){
+	 		arr[i][j] = {
+				chip: false,
+				opened: false,
+				fire: (function (){
+					 	if( this.chip && this.opened === false){
+					 		this.showMessage("you hit")
+					 	}
+					 	else{
+					 		this.showMessage("you didn't hit.Try again")
+					 	}
+	 				}),
+				showMessage: (function (message){ 
+					console.log(message);
+	 				}),
+				validate: (function () {
+				 	if(x >=0 && x < N && y >=0 && y < N){
+				 		return this;
+				 	}
+				 	else{
+				 		this.showMessage("It is is not valid cell. Select another, please");
+				 	}
+				 })
+
+			};
+	 	}
+	}
+	</script>
+</body>
+</html>
