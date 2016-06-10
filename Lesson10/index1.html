@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Урок 5</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var calculator = {
+			read: function() {
+			    this.a = +prompt('введите число', '');
+			    this.b = +prompt('введите число', '');
+			},
+			sum: function() {
+				return this.a + this.b;
+			},
+			mul: function() {
+				return (this.a * this.b);
+			}
+		};
+		calculator.read();
+		console.log(calculator.sum() );
+		console.log( calculator.mul() );
+	</script>
+</body>
+</html>
